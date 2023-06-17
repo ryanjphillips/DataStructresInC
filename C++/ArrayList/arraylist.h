@@ -1,5 +1,7 @@
+#ifndef ARRAYLIST_H
+#define ARRAYLIST_H
 #include <iostream>
-#include <stdexcept>
+using namespace std;
 #define MIN_CAPACITY 8
 
 template <typename T>
@@ -15,10 +17,14 @@ class ArrayList
                     {data = new T[max_size];}
         ArrayList(const ArrayList &rhs);
         const ArrayList& operator=(const ArrayList& rhs);
-        ~ArrayList();
+        ~ArrayList() ;
         T & operator[](int i);
         void insert(int i, const T& x);
         void erase(int i);
         bool find(const T& x);
         void remove(int i);
 };
+
+#include "arraylist.h"
+
+#endif

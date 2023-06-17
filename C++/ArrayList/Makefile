@@ -3,8 +3,7 @@
 CC = g++
 valgrindFile = valgrind.txt
 FLAGS = --std=c++11
-HEADERS = arrayList.h
-SRC = main.cpp arrayList.cpp
+SRC = arraylist.cpp main.cpp 
 
 make.out: ${SRC}
 	$(CC) $(FLAGS) $^ -o $@ 

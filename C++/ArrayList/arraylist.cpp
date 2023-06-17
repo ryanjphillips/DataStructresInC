@@ -1,4 +1,6 @@
-#include "arrayList.h"
+#include "arraylist.h"
+#include <iostream>
+using namespace std;
 
 template <typename T> void ArrayList<T>::resize(int new_max_size) {
   T *temp = new T[new_max_size];
@@ -19,7 +21,7 @@ template <typename T> T &ArrayList<T>::operator[](int i) {
     return data[i];
 
   } catch (...) {
-    std::cerr << "Error: Out of bounds. " << std::endl;
+     cerr << "Error: Out of bounds. " <<  endl;
   }
 }
 
@@ -40,7 +42,7 @@ template <typename T> void ArrayList<T>::insert(int i, const T &x) {
     data[i] = x;
     size++;
   } catch (...) {
-    std::cerr << "Error: Out of bounds. " << std::endl;
+     cerr << "Error: Out of bounds. " <<  endl;
   }
 }
 
@@ -60,7 +62,7 @@ template <typename T> void ArrayList<T>::remove(int i) {
       resize(max_size / 2);
     }
   } catch (...) {
-    std::cerr << "Error: Out of bounds. " << std::endl;
+     cerr << "Error: Out of bounds. " <<  endl;
   }
 }
 
@@ -78,9 +80,9 @@ template <typename T> ArrayList<T>::~ArrayList() { delete[] data; }
 template <typename T>
 const ArrayList<T> &ArrayList<T>::operator=(const ArrayList &rhs) {
   if (this != &rhs) {
-    T *tmp = new T[rhs.max];
+    T *tmp = new T[rhs.max_size];
     for (int k = 0; k < rhs.size; k++) {
-      tmp.data[k] = rhs.data[k];
+      tmp[k] = rhs.data[k];
     }
 
     max_size = rhs.max_size;
@@ -100,3 +102,5 @@ template <typename T> ArrayList<T>::ArrayList(const ArrayList &rhs) {
   data = nullptr;
   *this = rhs;
 }
+
+template class ArrayList<int>;
